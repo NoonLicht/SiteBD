@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Авторизация</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="/static/login.css" rel="stylesheet">
+</head>
+<body>
+  <div class="login-box">
+      <div class="form">
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="text" name="username" placeholder="username" required>
+            <br><br>
+            <input type="password" name="password" placeholder="password" required>
+            <br><br>
+          <button>Sign in</button>
+        </form>
+      </div>
+  </div>
+</body>
+</html>
+
+

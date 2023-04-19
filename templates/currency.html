@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Курсы валют</title>
+</head>
+<body>
+	<form>
+		<table border="1">
+			<tr>
+				<th>Код валюты</th>
+				<th>Единиц</th>
+				<th>Валюта</th>
+				<th>Курс ЦБ РФ</th>
+			</tr>
+			{% for row in rows %}
+				{{ row }}
+			{% endfor %}
+		</table>
+	</from>
+</body>
+</html>

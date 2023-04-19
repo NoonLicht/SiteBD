@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.phone-mask').inputmask();
+	});
+	</script>	
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Список сотрудников</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dir.css') }}">
+</head>
+<body>
+	<table>
+		<div>
+			<form2 action="/update1" method="post">
+				<input type="text" name="id" value="{{ id }}" placeholder="ID" required>
+				<input type="text" name="last_name" value="{{ last_name }}" placeholder="Фамилия" required>
+				<input type="text" name="first_name" value="{{ first_name }}" placeholder="Имя" required>
+				<input type="text" name="middle_name" value="{{ middle_name }}" placeholder="Отчество" required>
+				<input type="text" name="position" value="{{ position }}" placeholder="Должность" required>
+				<input type="text" name="address" value="{{ address }}" placeholder="Адрес" required>
+				<input type="text" name="phone" value="{{ phone }}" placeholder="Телефон" required class="phone-mask" data-inputmask="'mask': '+7 (999) 999-99-99'">
+				<input type="text" name="public_number" value="{{ public_number }}" placeholder="Рабочий телефон" required class="phone-mask" data-inputmask="'mask': '+7 (999) 999-99-99'">
+				<input type="submit" value="Изменить">
+			</form2>	
+		</div>
+		<tr>
+			<th>id</th>
+			<th>Фамилия</th>
+			<th>Имя</th>
+			<th>Отчество</th>
+			<th>Должность</th>
+			<th>Адрес</th>
+			<th>Телефон</th>
+			<th>Рабочий телефон</th>
+			<th>Действия</th>
+		</tr>
+		{% for employee in employees %}
+		<tr>
+			<td>{{ employee[0] }}</td>
+			<td>{{ employee[1] }}</td>
+			<td>{{ employee[2] }}</td>
+			<td>{{ employee[3] }}</td>
+			<td>{{ employee[4] }}</td>
+			<td>{{ employee[5] }}</td>
+			<td>{{ employee[6] }}</td>
+			<td>{{ employee[7] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Стиль для полей ввода логина и пароля */
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.btn-primary {
+    border-radius: 0;
+}
+
+/* Стиль для поля с информацией */
+.alert-primary {
+    border-radius: 0;
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    padding: 1rem;
+}

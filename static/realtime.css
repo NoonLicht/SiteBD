@@ -1,0 +1,33 @@
+table {
+    border-collapse: collapse;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  thead th {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+  
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+  
+  tbody td:first-child {
+    text-align: center;
+  }
+  
+  tbody td:last-child {
+    text-align: right;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  

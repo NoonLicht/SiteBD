@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+  </head>
+  <body>
+    <form>
+      <h1>Результаты поиска</h1>
+      {% if error %}
+        <p>{{ error }}</p>
+      {% else %}
+        <p>Имя клиента: {{ client_name }}</p>
+        <p>Общий счет покупок: {{ total_purchase }}</p>
+        <p>Текущий счет клиента: {{ current_balance }}</p>
+        <p>Потолок кредита: {{ credit_limit }}</p>
+        <p>Текущий долг клиента: {{ current_debt }}</p>
+        <p>Остаток кредита: {{ remaining_credit }}</p>
+        <p>Комментарий: {{ comment }}</p>
+      {% endif %}
+    </form>
+  </body>
+</html>

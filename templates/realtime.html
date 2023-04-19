@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Курсы валют</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='realtime.css') }}">
+</head>
+<body>
+    <form>
+        <h1>Курсы валют</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Валюта</th>
+                    <th>Курс</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EUR</td>
+                    <td>{{ rates.EUR }}</td>
+                </tr>
+                <tr>
+                    <td>JPY</td>
+                    <td>{{ rates.JPY }}</td>
+                </tr>
+                <tr>
+                    <td>GBP</td>
+                    <td>{{ rates.GBP }}</td>
+                </tr>
+                <tr>
+                    <td>CAD</td>
+                    <td>{{ rates.CAD }}</td>
+                </tr>
+                <tr>
+                    <td>CHF</td>
+                    <td>{{ rates.CHF }}</td>
+                </tr>
+                <tr>
+                    <td>AUD</td>
+                    <td>{{ rates.AUD }}</td>
+                </tr>
+                <tr>
+                    <td>CNY</td>
+                    <td>{{ rates.CNY }}</td>
+                </tr>
+                <tr>
+                    <td>HKD</td>
+                    <td>{{ rates.HKD }}</td>
+                </tr>
+                <tr>
+                    <td>SEK</td>
+                    <td>{{ rates.SEK }}</td>
+                </tr>
+                <tr>
+                    <td>RUB</td>
+                    <td>{{ rates.RUB }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</table>

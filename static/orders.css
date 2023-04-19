@@ -1,0 +1,87 @@
+/* Фон страницы */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f0f0f;
+  }
+  
+  /* Заголовки */
+  
+
+  select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    background: #f8f5f5;
+    max-width: 400px;
+    min-width: 400px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius:5px;
+  }
+
+  h1 {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 0px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+  }
+  
+  /* Форма поиска */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    background: #f8f5f5;
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius:15px;
+  }
+  
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 200px;
+    padding: 12px;
+    margin: 10 auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  button[type="submit"] {
+    width: 200px;
+    height: 40px;
+    background-color: #2957d6;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3324be;
+  }
+  
+  /* Результаты поиска */
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }

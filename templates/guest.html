@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Список сотрудников</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dir.css') }}">
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Фамилия</th>
+			<th>Имя</th>
+			<th>Отчество</th>
+			<th>Должность</th>
+			<th>Рабочий телефон</th>
+		</tr>
+		{% for employee in employees %}
+		<tr>
+			<td>{{ employee[1] }}</td>
+			<td>{{ employee[2] }}</td>
+			<td>{{ employee[3] }}</td>
+			<td>{{ employee[4] }}</td>
+			<td>{{ employee[7] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>

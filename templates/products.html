@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Список товаров</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dir.css') }}">
+</head>
+<body>
+
+    <div>
+        <form action="/add_p" method="POST">
+            <label for="name">Наименование:</label>
+            <input type="text" name="name" id="name">
+            <label for="price">Стоимость:</label>
+            <input type="text" name="price" id="price">
+            <label for="quantity">Количество:</label>
+            <input type="text" name="quantity" id="quantity">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Наименование</th>
+                <th>Стоимость</th>
+                <th>Количество</th>
+                <th>Изменить количество</th>
+                <th>Изменить стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product[0] }}</td>
+                <td>{{ product[1] }}</td>
+                <td>{{ product[2] }}</td>
+                <td>{{ product[3] }}</td>
+                <td>
+                    <form action="{{ url_for('update_quantity', product_id=product[0]) }}" method="POST">
+                        <input type="number" name="quantity_change" value="0" min="-1000" max="1000">
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ url_for('update_price', product_id=product[0]) }}" method="POST">
+                        <input type="number" name="price_change" value="0">
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Новый заказ</title>
+    <link rel="stylesheet" href="static/orders.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+</head>
+<body>
+    <h1>Новый заказ</h1>
+    <form method="POST" action="/create_order">
+        <label for="client_name">Имя клиента:</label>
+        <select name="client_name" id="client_name">
+            {% for client in clients %}
+            <option value="{{ client[0] }}">{{ client[0] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="product_name">Наименование продукта:</label>
+        <select name="product_name" id="product_name">
+            {% for product in products %}
+            <option value="{{ product[0] }}" data-price="{{ product[1] }}">{{ product[0] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="sale_type">Тип продажи:</label>
+        <select name="sale_type" id="sale_type">
+            <option value="cash">Наличный расчет</option>
+            <option value="cashless">Безналичный расчет</option>
+            <option value="credit">Кредит</option>
+            <option value="netting">Взаимозачет</option>
+        </select>
+        <br><br>
+        <label for="quantity">Количество:</label>
+        <input type="number" name="quantity" id="quantity" required>
+        <br><br>
+        <button type="submit" value="Create Order">Создать заказ</button>
+    </form>
+    <script>
+        const productSelect = document.getElementById('product_name');
+        const quantityInput = document.getElementById('quantity');
+        const totalPriceSpan = document.getElementById('total_price');
+        // обновление цены при изменении выбранного продукта или количества
+        function updateTotalPrice() {
+        const productPrice = Number(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
+        const quantity = Number(quantityInput.value);
+        const totalPrice = productPrice * quantity;
+        totalPriceSpan.textContent = totalPrice.toFixed(2); // округляем до двух знаков после запятой
+        }
+        // добавляем обработчики событий
+        productSelect.addEventListener('change', updateTotalPrice);
+        quantityInput.addEventListener('input', updateTotalPrice);
+        // обновляем цену при загрузке страницы
+        updateTotalPrice();
+    </script>    
+    <h1>Создать заказ на обмен товаров</h1>
+	<form method="POST" action="/create_barter_order">
+		<label for="client_name">Имя клиента:</label>
+        <select name="client_name" id="client_name">
+            {% for client in clients %}
+            <option value="{{ client[0] }}">{{ client[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+		<label for="product_in">Товар, который будет отдан:</label>
+		<select name="product_in" id="product_name">
+            {% for product in products %}
+            <option value="{{ product[0] }}">{{ product[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+		<label for="quantity_in">Количество товара для обмена:</label>
+		<input type="number" name="quantity_in" id="quantity_in" required>
+        <br></br>
+		<label for="product_out">Товар, который будет получен:</label>
+		<select name="product_out" id="product_name">
+            {% for product in products %}
+            <option value="{{ product[0] }}">{{ product[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+		<label for="quantity_out">Количество товара для обмена:</label>
+		<input type="number" name="quantity_out" id="quantity_out" required>
+        <br></br>
+		<button type="submit" value="Создать заказ">Создать заказ(Бартер)</button>
+	</form>
+</body>
+</html>
